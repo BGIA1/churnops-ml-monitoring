@@ -1,0 +1,19 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: churnops-api:local
+    ports:
+      - "8000:8000"
+    environment:
+      CHURNOPS_CONFIG: configs/local.yaml
+    volumes:
+      - ./models:/app/models:ro
+      - ./reports:/app/reports:ro
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+

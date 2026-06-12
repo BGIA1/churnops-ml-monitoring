@@ -1,0 +1,45 @@
+project:
+  name: churnops-ml-monitoring
+  seed: 42
+
+paths:
+  training_data: data/raw/training_reference.csv
+  current_batch: data/incoming/current_batch.csv
+  drifted_batch: data/incoming/drifted_batch.csv
+  labeled_batch: data/incoming/labeled_monitoring_batch.csv
+  retraining_data: data/raw/retraining_dataset.csv
+  quarantine_dir: data/quarantine
+  scored_dir: data/scored
+  reports_dir: reports
+  registry_dir: models/registry
+  site_dir: site
+
+data:
+  training_rows: 1600
+  batch_rows: 240
+  retraining_rows: 1200
+
+training:
+  test_size: 0.2
+  validation_size: 0.2
+  threshold: 0.5
+  logistic_max_iter: 1000
+  random_forest_estimators: 180
+
+promotion:
+  roc_auc_tolerance: 0.03
+  f1_tolerance: 0.04
+  baseline_roc_auc_min_improvement: 0.0
+  baseline_f1_min_improvement: 0.0
+  min_recall: 0.50
+  initial_min_roc_auc: 0.68
+  initial_min_f1: 0.50
+
+monitoring:
+  psi_warning: 0.1
+  psi_critical: 0.25
+  ks_pvalue: 0.05
+  categorical_tvd_warning: 0.1
+  prediction_mean_delta_warning: 0.08
+  roc_auc_degradation_tolerance: 0.05
+  f1_degradation_tolerance: 0.08

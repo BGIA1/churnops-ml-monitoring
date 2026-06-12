@@ -1,0 +1,45 @@
+name: GCP Deploy Template (Manual Only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: "Future GCP project ID; no default is intentionally provided"
+        required: true
+        type: string
+      region:
+        description: "Future GCP region"
+        required: true
+        type: string
+      confirm_template_only:
+        description: "Type TEMPLATE-ONLY to acknowledge that this workflow deploys nothing"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  validate-template:
+    environment: gcp-production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate guarded inputs
+        env:
+          PROJECT_ID: ${{ inputs.project_id }}
+          REGION: ${{ inputs.region }}
+          CONFIRMATION: ${{ inputs.confirm_template_only }}
+        run: |
+          set -eu
+          test -n "$PROJECT_ID"
+          test -n "$REGION"
+          test "$CONFIRMATION" = "TEMPLATE-ONLY"
+          echo "Inputs validated. Template mode remains active."
+      - name: Document future OIDC boundary
+        run: |
+          echo "No gcloud, Terraform apply, image push, authentication, or deployment is run."
+          echo "A future reviewed workflow must use GitHub OIDC and short-lived credentials."
+          echo "See infra/gcp/README.md."
+

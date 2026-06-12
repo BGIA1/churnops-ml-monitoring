@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Install dependencies
+        run: uv sync --frozen --dev
+      - name: Ruff lint
+        run: uv run ruff check .
+      - name: Ruff format
+        run: uv run ruff format --check .
+      - name: Mypy
+        run: uv run mypy
+      - name: Tests and coverage
+        run: uv run pytest --cov=churnops --cov-report=term-missing --cov-report=xml
+      - name: Deterministic lifecycle demo
+        run: uv run churnops demo
+      - name: FastAPI tests
+        run: uv run pytest tests/test_api.py
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage
+          path: coverage.xml
+
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build API image
+        run: docker build --tag churnops-api:ci .
+

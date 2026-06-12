@@ -1,0 +1,14 @@
+.git
+.github
+.venv
+.env
+data
+models
+reports
+site
+tests
+htmlcov
+.coverage
+__pycache__
+*.pyc
+

@@ -1,0 +1,11 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "python",
+      "package-name": "churnops-ml-monitoring",
+      "initial-version": "0.1.0",
+      "changelog-path": "CHANGELOG.md"
+    }
+  }
+}
+

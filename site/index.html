@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChurnOps MLOps Demo</title>
+  <style>
+    :root { color-scheme: light dark; font-family: Inter, system-ui, sans-serif; }
+    body { max-width: 1100px; margin: 0 auto; padding: 2rem; line-height: 1.55; }
+    header { padding: 2rem; border-radius: 18px; background: #17324d; color: white; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap: 1rem; margin: 1.5rem 0; }
+    article { border: 1px solid #8291a0; border-radius: 14px; padding: 1rem; }
+    code, pre { background: #111827; color: #e5e7eb; border-radius: 8px; }
+    pre { padding: 1rem; overflow: auto; }
+    .ok { color: #31c48d; } .alert { color: #f98080; }
+  </style>
+</head>
+<body>
+  <header>
+    <p>Local-first, cloud-ready reference implementation</p>
+    <h1>ChurnOps MLOps Monitoring &amp; Retraining System</h1>
+    <p>Deterministic training, governed promotion, inference, drift,
+      performance, and retraining.</p>
+  </header>
+  <section class="grid">
+    <article><h2>Champion</h2><p><code>20260612-185417-903787-logistic_regression</code></p></article>
+    <article><h2>ROC-AUC</h2><p>0.7304612841572395</p></article>
+    <article><h2>F1</h2><p>0.5174129353233831</p></article>
+    <article><h2>Drift</h2><p class="alert">alert</p></article>
+    <article><h2>Performance</h2>
+      <p class="ok">ok</p></article>
+  </section>
+  <h2>Lifecycle snapshot</h2>
+  <pre>{
+  &quot;champion&quot;: {
+    &quot;version&quot;: &quot;20260612-185417-903787-logistic_regression&quot;,
+    &quot;metrics&quot;: {
+      &quot;roc_auc&quot;: 0.7304612841572395,
+      &quot;f1&quot;: 0.5174129353233831,
+      &quot;precision&quot;: 0.43333333333333335,
+      &quot;recall&quot;: 0.6419753086419753,
+      &quot;accuracy&quot;: 0.696875,
+      &quot;brier_score&quot;: 0.20180794429493382,
+      &quot;threshold&quot;: 0.5
+    }
+  },
+  &quot;drift&quot;: {
+    &quot;status&quot;: &quot;alert&quot;,
+    &quot;alerts&quot;: [
+      &quot;Categorical drift detected for contract_type&quot;,
+      &quot;Categorical drift detected for payment_method_category&quot;,
+      &quot;Numeric drift detected for data_usage_gb_30d&quot;,
+      &quot;Numeric drift detected for late_payments_6m&quot;,
+      &quot;Numeric drift detected for monthly_charges&quot;,
+      &quot;Numeric drift detected for support_tickets_30d&quot;,
+      &quot;Numeric drift detected for tenure_months&quot;,
+      &quot;Numeric drift detected for usage_minutes_30d&quot;,
+      &quot;Prediction distribution drift detected&quot;
+    ]
+  },
+  &quot;performance&quot;: {
+    &quot;status&quot;: &quot;ok&quot;,
+    &quot;alerts&quot;: []
+  }
+}</pre>
+  <p>This static page contains synthetic demo outputs only. It does not call a live API.</p>
+</body>
+</html>

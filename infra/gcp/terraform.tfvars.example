@@ -1,0 +1,6 @@
+enable_deployment    = false
+project_id           = "REPLACE_WITH_REVIEWED_PROJECT_ID"
+region               = "REPLACE_WITH_REVIEWED_REGION"
+container_image      = "REPLACE_WITH_REVIEWED_ARTIFACT_REGISTRY_IMAGE"
+artifact_bucket_name = "REPLACE_WITH_GLOBALLY_UNIQUE_BUCKET"
+
