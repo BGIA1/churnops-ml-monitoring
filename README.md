@@ -6,7 +6,7 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**Live demo placeholder:** `https://BGIA1.github.io/churnops-ml-monitoring/`
+**Live demo placeholder:** `https://bgia1.github.io/churnops-ml-monitoring/`
 
 Spanish documentation: [README.es.md](README.es.md)
 
