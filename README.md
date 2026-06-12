@@ -6,7 +6,7 @@
 [![Python 3.12](https://img.shields.io/badge/python-3.12-3776AB)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-**Live demo placeholder:** `https://bgia1.github.io/churnops-ml-monitoring/`
+**Live demo:** `https://bgia1.github.io/churnops-ml-monitoring/`
 
 Spanish documentation: [README.es.md](README.es.md)
 
@@ -179,7 +179,7 @@ See [docs/cost-control.md](docs/cost-control.md).
 
 ## What This Project Demonstrates
 
-- End-to-end ML lifecycle BGIA1ship across data, modeling, serving, and operations.
+- End-to-end ML lifecycle ownership across data, modeling, serving, and operations.
 - Deterministic experimentation translated into production-oriented package code.
 - Explicit champion/challenger governance, traceability, rollback, and rejected-candidate history.
 - Practical CI/CD, container security, cloud readiness, and cost-aware architecture.
