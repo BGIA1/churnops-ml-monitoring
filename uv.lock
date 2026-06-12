@@ -87,7 +87,7 @@ requires-dist = [
     { name = "scikit-learn", specifier = ">=1.5,<2" },
     { name = "scipy", specifier = ">=1.14,<2" },
     { name = "typer", specifier = ">=0.12,<1" },
-    { name = "uvicorn", extras = ["standard"], specifier = ">=0.30,<1" },
+    { name = "uvicorn", extras = ["standard"], specifier = ">=0.49.0,<1" },
 ]
 
 [package.metadata.requires-dev]
